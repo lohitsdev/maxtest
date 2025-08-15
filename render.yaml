@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: maxtest
+    env: node
+    buildCommand: pnpm install --frozen-lockfile; pnpm run build
+    startCommand: pnpm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_HUME_CONFIG_ID
+        value: 3290ac3e-6be5-4b92-a0d6-9aa9b4d58986
+      - key: HUME_API_KEY
+        value: DBhGDZBF2CD7gC0jGVGeyUyLYRXYBoygKB9gr7SR55BHupC2
+      - key: HUME_SECRET_KEY
+        value: E69OdDWI474Nk68USvaZnIs1GVQFND9fm44ygOpFZiwTxcY3jJhZQ5KE7rtE6ApJ
+    healthCheckPath: /
+    autoDeploy: true
