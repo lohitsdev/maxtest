@@ -4,6 +4,7 @@ import { VoiceProvider } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
 import StartCall from "./StartCall";
+
 import { ComponentRef, useRef } from "react";
 import { toast } from "sonner";
 
@@ -14,10 +15,9 @@ export default function ClientComponent({
 }) {
   const timeout = useRef<number | null>(null);
   const ref = useRef<ComponentRef<typeof Messages> | null>(null);
-
   // optional: use configId from environment variable
   const configId = process.env['NEXT_PUBLIC_HUME_CONFIG_ID'];
-  
+
   return (
     <div
       className={
@@ -45,6 +45,7 @@ export default function ClientComponent({
           toast.error(error.message);
         }}
       >
+
         <Messages ref={ref} />
         <Controls />
         <StartCall configId={configId} accessToken={accessToken} />
